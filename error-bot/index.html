@@ -8,5 +8,21 @@
   </head>
   <body>
 	<p>Error Bot Test Page</p>
+	<button onclick="simErrorBySDE()">Simulate Error By SDE</button><br>
+	<script>
+		function simErrorBySDE(){
+			lpTag.sdes = lpTag.sdes||[];
+			lpTag.sdes.push(
+			{
+				"type": "error",  //MANDATORY
+				"error": {
+				"message": "Generic Error Message",  // THE ERROR MESSAGE
+				"code": "er100004"  // THE ERROR CODE 
+				}
+			}
+			);
+
+		}
+	  </script>
   </body>
 </html>
