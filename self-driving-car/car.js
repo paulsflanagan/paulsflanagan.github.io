@@ -15,7 +15,7 @@ class Car{
       this.y-this.height/2,
       this.width,
       this.height
-    };
+    );
     ctx.fill();
     
   }
