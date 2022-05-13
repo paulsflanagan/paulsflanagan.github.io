@@ -15,7 +15,7 @@ class Sensor{
       const rayAngle=lerp(
         this.raySpread/2,
         -this.raySpread/2,
-        i/(this.rayCount-1
+        i/(this.rayCount-1)
       );
         
       const start={x:this.car.x, y:this.car.y};
