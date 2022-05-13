@@ -49,7 +49,7 @@ class Road{
       
     }
     
-    ctx.setLindDash([]);
+    ctx.setLineDash([]);
     this.borders.forEach(border+>{
       ctx.beginPath();
       ctx.moveTo(border[0].x,border[0].y);
