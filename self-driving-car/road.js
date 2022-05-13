@@ -41,7 +41,7 @@ class Road{
         i/this.laneCount
       );
       if(i>0 && i<this.laneCount){
-        ctx.setLineDaseh([20,20]);
+        ctx.setLineDash([20,20]);
       }else{
         ctx.setLineDash([]);
       }
