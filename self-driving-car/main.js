@@ -1,4 +1,4 @@
 const canvas=document.getElementById("myCanvas");
 
-canvas.heigh=window.innerHeight;
+canvas.height=window.innerHeight;
 canvas.width=200;
