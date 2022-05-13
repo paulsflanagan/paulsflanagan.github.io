@@ -27,6 +27,7 @@ class Controls{
           break;
       }
       console.table(this);
+    }
       
     document.onkeyup=(event)=>{
       switch(event.key){
@@ -44,6 +45,7 @@ class Controls{
           break;
       }
       console.table(this);
+    }
     
   }
   
