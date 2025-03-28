@@ -11,8 +11,13 @@
     <p id="secret"></p>
 
     <script>
-        // Print the environment variable to the screen
-        document.getElementById('secret').innerText = `Secret: ${window.MY_SECRET}`;
+        // Check if the environment variable is available
+        if (window.MY_SECRET) {
+            document.getElementById('secret').innerText = `Secret: ${window.MY_SECRET}`;
+        } else {
+            document.getElementById('secret').innerText = 'Error: Environment variable not found';
+            console.error('Error: Environment variable MY_SECRET not found');
+        }
     </script>
 </body>
 </html>
