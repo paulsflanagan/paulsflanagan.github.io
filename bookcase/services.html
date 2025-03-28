@@ -1,3 +1,38 @@
-<!-- services.html -->
-<h1>Services Page</h1>
-<p>Welcome to the services page!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Pages with Supabase</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+  <div id="data"></div>
+
+  <script>
+    // Initialize Supabase
+    const SUPABASE_URL = 'https://your-supabase-url.supabase.co';
+    const SUPABASE_KEY = 'your-supabase-key';
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    // Fetch data from Supabase
+    async function fetchData() {
+      const { data, error } = await supabase
+        .from('your-table-name')
+        .select('*');
+
+      if (error) {
+        console.error('Error fetching data:', error);
+        return;
+      }
+
+      // Display data
+      const dataDiv = document.getElementById('data');
+      dataDiv.innerHTML = JSON.stringify(data, null, 2);
+    }
+
+    // Call fetchData on page load
+    fetchData();
+  </script>
+</body>
+</html>
