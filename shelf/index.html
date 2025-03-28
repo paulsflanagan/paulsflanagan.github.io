@@ -46,5 +46,30 @@
         <h1>Welcome to the Main Content Area</h1>
         <p>This is where the main content of the web page will be displayed.</p>
     </div>
+    <script>
+        document.getElementById('home').addEventListener('click', function() {
+            loadContent('home.html');
+        });
+        document.getElementById('about').addEventListener('click', function() {
+            loadContent('about.html');
+        });
+        document.getElementById('services').addEventListener('click', function() {
+            loadContent('services.html');
+        });
+        document.getElementById('contact').addEventListener('click', function() {
+            loadContent('contact.html');
+        });
+
+        function loadContent(page) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', page, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById('main-content').innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+    </script>
 </body>
 </html>
