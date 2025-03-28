@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Page Interface</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .menu {
+            width: 200px;
+            background-color: #333;
+            color: white;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+        }
+        .menu a:hover {
+            background-color: #575757;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <h2>Menu</h2>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="main-content" id="main-content">
+        <h1>Welcome to the Main Content Area</h1>
+        <p>This is where the main content of the web page will be displayed.</p>
+    </div>
+    <script>
+        window.addEventListener('hashchange', function() {
+            loadContent(location.hash);
+        });
+
+        function loadContent(hash) {
+            var page = '';
+            switch (hash) {
+                case '#home':
+                    page = 'home.html';
+                    break;
+                case '#about':
+                    page = 'about.html';
+                    break;
+                case '#services':
+                    page = 'services.html';
+                    break;
+                case '#contact':
+                    page = 'contact.html';
+                    break;
+                default:
+                    page = 'home.html';
+            }
+            fetch(page)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('main-content').innerHTML = data;
+                })
+                .catch(error => {
+                    document.getElementById('main-content').innerHTML = '<p>Error loading content.</p>';
+                });
+        }
+
+        // Load initial content based on the current hash
+        if (location.hash) {
+            loadContent(location.hash);
+        } else {
+            loadContent('#home');
+        }
+
+        const MY_SECRET = process.env.MY_SECRET;
+    </script>
+</body>
+</html>
